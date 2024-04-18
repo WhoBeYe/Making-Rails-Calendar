@@ -17,7 +17,8 @@
         <% date_range.slice(0, 7).each do |day| %>
 
           <th>
-            <%= t('date.abbr_day_names')[day.wday] %>
+            <%# puts( day.wday ) %>
+            <%= t('date.day_names')[day.wday] %>
           </th>
           
         <% end %>
@@ -28,11 +29,11 @@
       <% date_range.each_slice(7) do |week| %>
         <tr style="height: 100px;">
           <% week.each do |day| %>
-            <td>
+            <!-- <td> -->
 
-                <!-- <% puts( day.class ) %> -->
+                <!-- <% puts( day.day ) %> -->
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-                <!-- <% puts( "#{day.class}\n" ) %> -->
+                <!-- <%# puts( "#{day.day}\n" ) %> -->
 
 
               <!-- this is whats responsible for the days that show up -->
@@ -49,7 +50,7 @@
 
               
             <% end %>
-            </td>
+            <!-- </td> -->
             
             
 
@@ -59,4 +60,53 @@
       <% end %>
     </tbody>
   </table>
+
+
+  <table style="border: 1px solid black; background-color: white; border-collapse: collapse; width: 100%;">
+
+    <thead>
+
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th style="border: 1px solid black; height: 40px; width: 13.29%;">
+            <%= t('date.abbr_day_names')[day.wday] %>
+          </th>
+        <% end %>
+        
+
+      </tr>
+
+    </thead>
+       
+    <tbody>
+
+      <% date_range.each_slice(7) do |week| %>
+      <tr>
+        <% week.each do |day| %>
+        <td style="border: 1px solid black;">
+          <%= day.day  %>
+        </td>
+
+        <% end %>
+      </tr>
+
+      <% end %>
+
+
+      
+    </tbody>
+    
+
+
+  </table>
+
+
+
 </div>
+
+
+
+<br>
+<br>
+<br>
+<br>
