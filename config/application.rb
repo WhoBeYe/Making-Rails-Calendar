@@ -31,5 +31,12 @@ module Calendar
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # this is to help set the start time and the time zone
+    config.time_zone = 'Central Time (US & Canada)'
+    
+    # here I set the how the week starts
+    config.beginning_of_week = :sunday
+
   end
 end
