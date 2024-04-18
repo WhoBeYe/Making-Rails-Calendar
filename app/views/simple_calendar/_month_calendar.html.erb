@@ -25,40 +25,6 @@
       </tr>
     </thead>
 
-    <tbody>
-      <% date_range.each_slice(7) do |week| %>
-        <tr style="height: 100px;">
-          <% week.each do |day| %>
-            <!-- <td> -->
-
-                <!-- <% puts( day.day ) %> -->
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-                <!-- <%# puts( "#{day.day}\n" ) %> -->
-
-
-              <!-- this is whats responsible for the days that show up -->
-              <!-- <div style="background-color: red; text-align: right;"> -->
-
-                <% passed_block.call day %>
-
-
-              <!-- </div> -->
-                
-
-              <%# puts "#{day.month}" %>
-                
-
-              
-            <% end %>
-            <!-- </td> -->
-            
-            
-
-            
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
   </table>
 
 
@@ -81,11 +47,23 @@
     <tbody>
 
       <% date_range.each_slice(7) do |week| %>
-      <tr>
+      <tr style="height: 100px;">
         <% week.each do |day| %>
-        <td style="border: 1px solid black;">
-          <%= day.day  %>
-        </td>
+
+          <% if ( start_date.month == day.month ) %>
+            <td style="border: 1px solid black;">
+              <%= day.day  %>
+
+            </td>
+
+          <% else %>
+
+            <td style="border: 1px solid black; background-color: aqua;">
+              <%= day.day  %>
+
+            </td>
+            
+          <% end %>
 
         <% end %>
       </tr>
