@@ -1,40 +1,43 @@
 
 
-<div class="simple-calendar">
-  <div class="h-100 d-flex align-items-center justify-content-center">
-    <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view, class: "h3" %>
 
-    <!-- this is the month shown -->
-    <span class="display-3"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+  <div class="container text-center" style="border-radius: 5px;">
 
+    <div class="row justify-content-md-center">
 
-    <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
+      <div class="col">
+        <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view, class: "display-4", style: "text-decoration: none; color: black;" %>
+      </div>
+      
+
+      <div class="col-9">
+
+        <!-- this is the month shown -->
+        <span class="display-3"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+
+      </div>
+      
+
+      <div class="col">
+
+        <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view, class: "display-4", style: "text-decoration: none; color: black;" %>
+
+      </div>
+
+      
+
+    </div>
+      
   </div>
 
+  <!-- this is the calendar that I implemented form scratch -->
   <table class="table table-bordered table-responsive">
-    <thead>
-      <tr >
-        <% date_range.slice(0, 7).each do |day| %>
-
-          <th>
-            <%# puts( day.wday ) %>
-            <%= t('date.day_names')[day.wday] %>
-          </th>
-          
-        <% end %>
-      </tr>
-    </thead>
-
-  </table>
-
-
-  <table style="border: 1px solid black; background-color: white; border-collapse: collapse; width: 100%;">
 
     <thead>
 
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th style="border: 1px solid black; height: 40px; width: 13.29%;">
+          <th>
             <%= t('date.abbr_day_names')[day.wday] %>
           </th>
         <% end %>
@@ -51,14 +54,14 @@
         <% week.each do |day| %>
 
           <% if ( start_date.month == day.month ) %>
-            <td style="border: 1px solid black;">
+            <td style="text-align: right;">
               <%= day.day  %>
 
             </td>
 
           <% else %>
 
-            <td style="border: 1px solid black; background-color: aqua;">
+            <td style="text-align: right; background-color: aqua;">
               <%= day.day  %>
 
             </td>
@@ -80,7 +83,7 @@
 
 
 
-</div>
+
 
 
 
