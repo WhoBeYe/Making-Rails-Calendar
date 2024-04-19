@@ -1,12 +1,12 @@
 
 
 
-  <div class="container text-center" style="border-radius: 5px;">
+  <div class="container text-center">
 
     <div class="row justify-content-md-center">
 
       <div class="col">
-        <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view, class: "display-4 disabled", style: "text-decoration: none; color: black;" %>
+        <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view, class: "display-4", style: "text-decoration: none; color: black;" %>
       </div>
       
 
@@ -55,14 +55,18 @@
 
           <% if ( start_date.month == day.month ) %>
             <td style="text-align: right;">
-              <%= day.day  %>
+              <div style="color: rgb(101, 101, 101);">
+                <%= day.day %>
+              </div>
 
             </td>
 
           <% else %>
 
-            <td style="text-align: right; background-color: aqua;">
-              <%= day.day  %>
+            <td style="text-align: right; background-color: rgb(231, 231, 231);">
+              <div style="color: rgb(101, 101, 101);">
+                <%= day.day %>
+              </div>
 
             </td>
             
@@ -85,7 +89,7 @@
 
 
 
-<%# Date.today.month %>
+
 
 <br>
 <br>
